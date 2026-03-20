@@ -1,3 +1,5 @@
+mod expose;
+
 pub mod codegen {
     tonic::include_proto!("grpc.examples.unaryecho");
 }
