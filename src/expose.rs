@@ -2,7 +2,7 @@
 
 // The structure backing the storage that raft operates on!!!
 
-trait Store<K, V>
+pub trait Store<K, V>
 where
     Self: Sized + Send + Sync,
     K: Send + 'static,
@@ -16,13 +16,13 @@ where
     async fn apply_command(&self, command: Self::Command) -> Result<Option<V>, Self::Error>;
 }
 
-trait Command {}
+pub trait Command {}
 
 // --------------------------------------------------------------------------------------------
 
 // Example of how the structure can be used!
 
-enum Commands<K, V> {
+pub enum Commands<K, V> {
     Get(K),
     Set((K, V)),
     Remove(K),
